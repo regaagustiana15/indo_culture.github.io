@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing page</title>
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- javascript alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- link font awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- link icons sell -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- style css  -->
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="style(2).css" />
+
+    <!-- app js -->
+    <script src="src/app.js" async></script>
+  </head>
+
+  <body x-data>
+    <!-- Header -->
+    <header>
+      <input type="checkbox" name="" id="toggler" />
+      <label for="toggler" class="fas fa-bars"></label>
+
+      <a href="#home" class="logo">Indo.<span>culture</span></a>
+
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Tentang Kami</a>
+        <a href="produk.html">Produk</a>
+        <a href="#review">Review</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="icons">
+        <!-- <a href="#" id="search-button"><i data-feather="search"></i></a> -->
+        <a href="#"><i data-feather="heart"></i></a>
+        <a href="#" id="shopping-cart-button">
+          <!-- <i data-feather="shopping-cart"></i> -->
+          <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+        </a>
+      </div>
+
+      <!-- Search Form start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- Search Form end -->
+
+      <!-- Shopping cart -->
+      <div class="shopping-cart">
+        <template x-for="(item, index) in $store.cart.items" x-key="index">
+          <div class="cart-item">
+            <img :src="`img/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                <span x-text="rupiah($store.cart.total)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">CART IS EMPTY</h4>
+        <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
+            <h5>Custumer Detail</h5>
+
+            <label for="name">
+              <span>Name</span>
+              <input type="text" name="name" id="name" />
+            </label>
+
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" />
+            </label>
+
+            <label for="phone">
+              <span>Phone</span>
+              <input type="number" name="phone" id="phone" autocomplete="off" />
+            </label>
+
+            <button class="checkout-button disabled" type="submit" id="checkout-button">Beli</button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- Akhir Header -->
+
+    <!-- Mulai Section Hero Background -->
+    <section id="page-header" class="blog-header">
+      <h2>#Readmore</h2>
+
+      <p>Real all case studies about our products!</p>
+    </section>
+    <!-- Akhir Section Hero Background -->
+
+    <section class="products" id="products" x-data="products">
+      <h1 class="heading">Tentang <span>Kami</span></h1>
+    </section>
+
+    <!-- Mulai Blog -->
+    <section id="blog">
+      <div class="blog-box">
+        <div class="blog-img">
+          <img src="img/standart-konveksi-baju.jpg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>Produksi kaos, kemeja, jaket, baju, seragam, trening.</h4>
+          <p>Berpengalaman lebih dari 10 tahun dalam memproduksi beraneka produk konveksi sebagai perusahaan.</p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>95/100</h1>
+      </div>
+      <div class="blog-box">
+        <div class="blog-img">
+          <img src="img/Jenis-Kolaborasi-Bisnis-Komunitas.jpg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>Vendor no.1 Di Kabupaten BANDUNG</h4>
+          <p>Kami sudah berpengalaman dalam melayani Klien – klien baik dari Perorangan, Komunitas, Organisasi, Instansi, Sekolah maupun Perusahaan.</p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>95/100</h1>
+      </div>
+      <div class="blog-box">
+        <div class="blog-img">
+          <img src="img/team.jpg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>Tim Profesional</h4>
+          <p>
+            Brand ini memiliki konsep produksi yang terintegrasi, artinya semua proses produksi mulai dari Potong Bahan, Sablon, Bordir, Jahit, Finishing & Packing dikerjakan oleh Konveksi No.1 jawa Barat, Sehingga dengan konsep ini akan
+            mempercepat proses produksi dengan kualitas yang terkontrol.
+          </p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>99/100</h1>
+      </div>
+      <div class="blog-box">
+        <div class="blog-img">
+          <img src="img/banjuga.jpg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>SUPPORT SYSTEM</h4>
+          <p>
+            Konveksi Eyras merupakan perusahaan Konveksi semi garment yang berlokasi di Sumedang sebagai pusat produksi pembuatan Kaos Oblong, Kaos Olahraga, Tshirt, Kaos Polo, Jaket, Seragam, Baju, Kemeja, PDL/PDH, Topi, Rompi,
+            Jas Lab, Jas Almaer, Dll
+          </p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>100/100</h1>
+      </div>
+      <div class="blog-box">
+        <div class="blog-img">
+          <img src="img/kualitas.jpg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>100% KUALITAS TERBAIK</h4>
+          <p>"Indo.Culture dan Eyras Konveksi telah berkolaborasi serta mengalami transformasi dengan fasilitas produksi modern dan peralatan terbaru guna memastikan kualitas produk yang optimal. Kami menawarkan harga yang bersaing dan pengiriman yang cepat ke seluruh Indonesia. Kami siap menerima pesanan dalam jumlah besar untuk perusahaan dan acara khusus seperti kegiatan promosi atau event.</p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>95/100</h1>
+      </div>
+
+      <div class="blog-box">
+        <div class="blog-img">
+          <img src="img/ucapan-selamat-wisuda---dok.-ui-1.jpg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>Menyulam Keceriaan dalam Setiap Jahitan.</h4>
+          <p>"Indo.Culture hadir untuk berdedikasi memenuhi beragam kebutuhan dengan keunggulan inovatifnya, membentuk solusi yang menjembatani kompleksitas tantangan yang dihadapi oleh lembaga atau Instansi Lainnya."</p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>95/100</h1>
+      </div>
+
+      <div class="blog-box" id="visi">
+        <div class="blog-img">
+          <img src="img/R.jpeg" alt="" />
+        </div>
+        <div class="blog-details">
+          <h4>VISI & MISI</h4>
+          <p>Visi:
+            "Menjadi pelopor dalam mempromosikan dan melestarikan kekayaan budaya Indonesia melalui produk-produk berkualitas tinggi."
+            
+            Misi:
+            
+            Menghadirkan produk berkualitas yang menggabungkan unsur budaya Indonesia dengan desain kontemporer.
+            Mendorong apresiasi terhadap seni dan kerajinan tradisional Indonesia.
+            Menjadi wadah bagi pengrajin dan seniman lokal untuk berkembang.
+            Berkomitmen menjaga integritas budaya Indonesia dalam setiap aspek bisnis.
+            Mengedukasi masyarakat tentang pentingnya melestarikan warisan budaya Indonesia.</p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>95/100</h1>
+      </div>
+    </section>
+    <!-- Akhir Blog -->
+
+    <!-- Mulai Section Pagination -->
+    <section id="pagination" class="section-p1">
+      <a href="index.html"><i class="bx bxs-left-arrow"></i></a>
+      <a href="#page-header">2</a>
+      <a href="produk.html"><i class="bx bxs-right-arrow"></i></a>
+    </section>
+    <!-- Akhir Section Pagination -->
+
+    <!-- footer Section-->
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>quick link</h3>
+          <a href="index.html">home</a>
+          <a href="blog.html">tentang kami</a>
+          <a href="produk.html">collections</a>
+          <a href="index.html#review">review</a>
+          <a href="index.html#contact">contact</a>
+        </div>
+
+        <div class="box">
+          <h3>Melayani Pembuatan</h3>
+          <a href="#">Kaos Sablon, Bordir</a>
+          <a href="produk.html">Seragam Olahraga</a>
+          <a href="product.detail.html">Serangam Komunitas</a>
+        </div>
+
+
+        <div class="box">
+          <h3>locations</h3>
+          <a href="#">Indonesia</a>
+          <a href="#">Bandung</a>
+          <a href="#">Jakarta</a>
+          <a href="#">Surabaya</a>
+        </div>
+
+        <div class="box">
+          <h3>Contact Info</h3>
+          <a href="#">+62-821-1891-6970</a>
+          <a href="#">Indo.culture.fashion@gmail.com</a>
+          <a href="#">Majalaya, Bandung, Indonesia</a>
+          <div class="social">
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-whatsapp"></i>
+            <i class="bx bx-envelope"></i>
+            <i class="bx bxs-map"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="credit">
+        created by <span><a href=""> Indo.culture </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
+      </div>
+    </section>
+    <!-- Akhir footer Section -->
+    <!-- feather script -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INDO_CULTURE</title>
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- javascript alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- link font awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- link icons sell -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Swiper card -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- style css  -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- favicon title -->
+    <link rel="icon" type="image" href="img/logo.jpg" />
+    <!-- <link rel="icon" type="image" href="img/logo2.jpg"> -->
+
+    <!-- app js -->
+    <script src="src/app.js" async></script>
+    <!-- <script src="js/contact.js"></script> -->
+  </head>
+
+  <body x-data>
+    <!-- Header -->
+    <header>
+      <input type="checkbox" name="" id="toggler" />
+      <label for="toggler" class="fas fa-bars"></label>
+
+      <a href="#home" class="logo">Indo.<span>culture</span></a>
+
+      <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="blog.html">Tentang Kami</a>
+        <a href="produk.html">Produk</a>
+        <a href="#review">Review</a>
+        <a href="https://wa.me/6282118916970?text=">Contact</a>
+      </nav>
+
+      <div class="icons">
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#"><i data-feather="heart"></i></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+        </a>
+      </div>
+
+      <!-- Search Form start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- Search Form end -->
+
+      <!-- Shopping cart -->
+      <div class="shopping-cart">
+        <template x-for="(item, index) in $store.cart.items" x-key="index">
+          <div class="cart-item">
+            <img :src="`img/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                <span x-text="rupiah($store.cart.total)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">CART IS EMPTY</h4>
+        <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
+            <h5>Custumer Detail</h5>
+
+            <label for="name">
+              <span>Name</span>
+              <input type="text" name="name" id="name" required placeholder="..." />
+            </label>
+
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" required placeholder="..." />
+            </label>
+
+            <label for="address">
+              <span>Alamat</span>
+              <input type="text" name="address" id="address" required placeholder="..." />
+            </label>
+
+            <label for="jenis">
+              <span>Produk</span>
+              <input type="text" list="Jenis pesanan" name="jenis" id="jenis" placeholder="..." />
+              <datalist id="Jenis pesanan">
+                <option value="Kaos"></option>
+                <option value="Jaket"></option>
+                <option value="Jas Almamater"></option>
+                <option value="Pdl/Pdh"></option>
+                <option value="Sweater"></option>
+                <option value="Busana Muslim"></option>
+                <option value="Lainnya"></option>
+              </datalist>
+            </label>
+
+            <label for="jumlah">
+              <span>Costum</span>
+              <input type="text" name="jumlah" id="jumlah" required placeholder="Bahan/jenis sablon/jumlah pesanan, dll.." />
+            </label>
+
+            <label for="foto">
+              <span>Desain</span>
+              <input type="file" name="foto" id="foto" placeholder="Upload.." />
+            </label>
+
+            <label for="keterangan">
+              <span>Message</span>
+              <input type="text" name="keterangan" id="keterangan" placeholder="keterangan.." />
+            </label>
+
+            <button class="checkout-button disabled" type="submit" id="checkout-button">Beli</button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- Akhir Header -->
+
+    <!-- Awal home section -->
+    <section class="hero" id="home">
+      <div class="mask-container">
+        <main class="content">
+          <h1>Mari Support Brand <span>Lokal Berkualitas</span></h1>
+          <p>Bingung mau cari pakaian hits kekinian yang murah tapi berkualitas? Kami solusinya!</p>
+          <button><a href="https://wa.me/6282118916970?text=">Hubungi Sekarang</a></button>
+        </main>
+      </div>
+    </section>
+    <!-- akhir Home Section -->
+
+    <!-- Awal About Section  -->
+    <section class="hero-container">
+      <div>
+        <div>
+          <h1 id="tol" class="heading">WELCOME TO <span>WEBSITE</span></h1>
+          <p>why here how to believe?</p>
+        </div>
+      </div>
+      <img src="assets/hero.svg" alt="hero" />
+    </section>
+    <section class="description-container">
+      <div>
+        <div>
+          <h1 class="heading" style="font-size: 1.5rem">INDO CULTURE</h1>
+          <p>Selamat datang di INDO_CULTURE. Kami menyediakan berbagai layanan jasa produksi pakaian seperti jaket, baju korsa, jas almamater, polo shirt, t-shirt, seragam kerja, jaket parka, hoodie, jaket bomber, seragam olahraga, dll.</p>
+        </div>
+        <div class="description-left-footer">
+          <p>MARET 12 2024</p>
+          <p class="font-weight-bold">Read more..</p>
+        </div>
+      </div>
+      <img src="img/magazine.png" alt="desc" onclick="window.location.href='blog.html'" />
+    </section>
+    <section class="content-container">
+      <div class="card">
+        <img src="img/prodet1.jpg" alt="card1" />
+        <div class="card-body" onclick="window.location.href='blog.html'">
+          <h3>How to Care for Your Heart Clothes</h3>
+          <p>Memakai pakaian dari merek favorit Anda tentu akan meningkatkan penampilan Anda. Jadi, tentu Anda tidak ingin pakaian yang baru Anda beli menjadi cepat...</p>
+        </div>
+        <div class="card-footer">
+          <p>MARET 12 2024</p>
+          <p class="font-weight-bold">Continue read...</p>
+        </div>
+      </div>
+      <div class="card" onclick="window.location.href='blog.html#visi'">
+        <img src="img/R.jpeg" alt="card2" />
+        <div class="card-body">
+          <h3>VISI & MISI</h3>
+          <p>Visi: "Menjadi pelopor dalam mempromosikan dan melestarikan kekayaan budaya Indonesia melalui produk-produk berkualitas tinggi yang memancarkan keindahan dan keunggulan budaya Indonesia."</p>
+        </div>
+        <div class="card-footer">
+          <p>MARET 12 2024</p>
+          <p class="font-weight-bold">Continue read...</p>
+        </div>
+      </div>
+      <div class="card" onclick="window.location.href='blog.html'">
+        <img src="img/jahit.jpeg" alt="card3" />
+        <div class="card-body">
+          <h3>Unggul Berkualitas</h3>
+          <p>
+            Telah terbukti, pelanggan yang menggunakan jasa kami mengakui kualitas jasa/produk kami. INDO_CULTURE – Eyras konveksi menggunakan tim yang berpengalaman dan profesional dalam menciptakan produk yang sesuai dengan keinginan
+            Anda.
+          </p>
+        </div>
+        <div class="card-footer">
+          <p>Maret 12 2024</p>
+          <p class="font-weight-bold">Continue read..</p>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir About Section -->
+
+    <!-- Mulai Section Feature Servis -->
+    <section id="feature" class="section">
+      <div class="fe-box">
+        <a href="blog.html"> <i data-feather="grid"></i></a>
+      </div>
+      <div class="fe-box">
+        <a href="blog.html"> <i data-feather="life-buoy"></i></a>
+      </div>
+      <div class="fe-box">
+        <a href="blog.html"> <i data-feather="minimize"></i></a>
+      </div>
+      <div class="fe-box">
+        <a href="produk.html"> <i data-feather="shopping-bag"></i></a>
+      </div>
+    </section>
+    <!-- Akhir Section Feature Servis -->
+
+    <!-- Products section -->
+    <!-- items (satu) -->
+    <section class="products" id="products" x-data="products">
+      <h1 class="heading">Collections <span>Products</span></h1>
+
+      <div class="box-container">
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="box">
+            <span class="discount" x-text="item.discount"></span>
+            <div class="image">
+              <img :src="`img/${item.img}`" :alt="item.name" />
+              <div class="icons">
+                <a href="#" class="fas fa-heart"><i data-feather="heart"></i></a>
+                <a href="#" @click.prevent="$store.cart.add(item)" class="cart-btn fas fa-shopping-cart"></a>
+
+                <a href="product.detail.html"><i class="fa fa-eye"></i></a>
+              </div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+            <div class="content">
+              <h3 x-text="item.name"></h3>
+              <div class="price">
+                <p x-text="rupiah(item.promo)">Rp 125.000</p>
+                <span x-text="rupiah(item.price)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <!-- newItems (dua) -->
+      <div class="box-container">
+        <!-- Gunakan x-for untuk mengulang newItems -->
+        <template x-for="(newItem, index) in newItems" x-bind:key="index">
+          <div class="box">
+            <span class="discount" x-text="newItem.discount"></span>
+            <div class="image">
+              <!-- Pastikan untuk menggunakan backtick (`) untuk menyisipkan nilai JavaScript -->
+              <img :src="`img/${newItem.img}`" :alt="newItem.name" />
+              <div class="icons">
+                <a href="#" class="fas fa-heart"><i data-feather="heart"></i></a>
+                <!-- Panggil fungsi tambahkan ke keranjang saat tombol diklik -->
+                <a href="#" @click.prevent="$store.cart.add(newItem)" class="cart-btn fas fa-shopping-cart"></a>
+                <!-- Tambahkan tautan untuk melihat detail produk -->
+                <a href="detail_2.html"><i class="fa fa-eye"></i></a>
+              </div>
+              <div class="stars">
+                <!-- Tambahkan bintang atau peringkat produk -->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+            <div class="content">
+              <!-- Tampilkan nama produk -->
+              <h3 x-text="newItem.name"></h3>
+              <div class="price">
+                <!-- Tampilkan harga promo dan harga asli -->
+                <p x-text="rupiah(newItem.promo)">Rp 125.000</p>
+                <span x-text="rupiah(newItem.price)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+    <!-- Akhir Product section -->
+
+    <!-- Modal Box Item Detail Start -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/1.jpg" alt="Product" />
+          <div class="product-content">
+            <h3>Product 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, asperiores? Dicta, minus iure!</p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <div class="product-price">Rp 30.000 <span>Rp 55.000</span></div>
+            <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Box Item Detail End -->
+
+    <!-- Review Section -->
+    <section class="review" id="review">
+      <h1 class="heading">Costumer's <span>review</span></h1>
+      <div class="box-container">
+        <div class="box">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p>
+            "Sebagai seorang desainer, saya selalu mencari pakaian yang unik dan berbeda. indo.culture memberi saya kesempatan untuk berkolaborasi dalam menciptakan pakaian yang benar-benar unik. Dengan memilih desain sendiri dan
+            bahan-bahan berkualitas tinggi, saya dapat mengekspresikan kreativitas saya melalui pakaian yang saya kenakan. Itu adalah pengalaman berbelanja yang benar-benar istimewa."
+          </p>
+          <div class="user">
+            <img src="img/testi1.jpeg" alt="" />
+            <div class="user-info">
+              <h3>Lia</h3>
+              <span>Desainer Bandung</span>
+            </div>
+          </div>
+          <span class="fas fa-quote-right"></span>
+        </div>
+        <div class="box">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>Ngerti banget kebutuhan desain dan mau diajak berkonsultasi. Pesanannya juga selesai tepat waktu, harganya lebih murah dibandingkan konveksi lain.</p>
+          <div class="user">
+            <img src="img/testi2.jpeg" alt="" />
+            <div class="user-info">
+              <h3>Rizal</h3>
+              <span>Dosen Universitas MI</span>
+            </div>
+          </div>
+          <span class="fas fa-quote-right"></span>
+        </div>
+        <div class="box">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p>
+            "Awalnya saya bingung harus mencari tempat untuk membuat kaos. Namun, Alhamdulillah, saya menemukan Indo.Culture. Proses pembuatannya cepat, dan harganya terjangkau. Mereka juga sangat fleksibel dalam negosiasi, sehingga saya
+            bisa mendapatkan hasil yang memuaskan sesuai keinginan saya."
+          </p>
+          <div class="user">
+            <img src="img/testi3.jpg" alt="" />
+            <div class="user-info">
+              <h3>Muhammad Lutfi</h3>
+              <span>Pengusaha</span>
+            </div>
+          </div>
+          <span class="fas fa-quote-right"></span>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Review Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h1 class="heading"><span> Contact </span> Us</h1>
+
+      <div class="row">
+        <form onsubmit="emailSend(); reset(); return false;">
+          <div class="input-group">
+            <label for="name"><i class="bx bx-user"></i></label>
+            <input type="text" name="name" placeholder="name" required autocomplete="off" id="name" />
+          </div>
+
+          <div class="input-group">
+            <label for="email"><i class="bx bx-envelope"></i></label>
+            <input type="email" name="email" placeholder="email" required autocomplete="off" id="email" />
+          </div>
+
+          <div class="input-group">
+            <label for="nomor"><i class="bx bx-phone"></i></label>
+            <input type="number" name="nomor" placeholder="number" required autocomplete="off" id="nomor" />
+          </div>
+
+          <div class="input-group">
+            <label for="keterangan"><i class="fa-regular fa-paper-plane"></i></label>
+            <textarea name="keterangan" placeholder="Pesan ..." cols="30" rows="10" required id="keterangan"></textarea>
+          </div>
+
+          <button id="bot" type="submit" name="submit" value="send message" class="btn">send message</button>
+        </form>
+        <div class="image">
+          <img src="img/contact.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Contact Section -->
+
+    <!-- footer Section-->
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>quick link</h3>
+          <a href="index.html">home</a>
+          <a href="blog.html">tantang kami</a>
+          <a href="produk.html">products</a>
+          <a href="#review">review</a>
+          <a href="#contact">contact</a>
+        </div>
+
+        <div class="box">
+          <h3>Melayani Pembuatan</h3>
+          <a href="#">Kaos Sablon, Bordir</a>
+          <a href="produk.html">Seragam Olahraga</a>
+          <a href="product.detail.html">Serangam Komunitas</a>
+        </div>
+
+        <div class="box">
+          <h3>locations</h3>
+          <a href="#">Indonesia</a>
+          <a href="#">Bandung</a>
+          <a href="#">Jakarta</a>
+          <a href="#">Surabaya</a>
+        </div>
+
+        <div class="box">
+          <h3>Contact Info</h3>
+          <a href="#">+62-821-1891-6970</a>
+          <a href="#">Indo.culture.fashion@gmail.com</a>
+          <a href="#">Majalaya, Bandung, Indonesia</a>
+          <div class="social">
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-whatsapp"></i>
+            <i class="bx bx-envelope"></i>
+            <i class="bx bxs-map"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="credit">
+        created by <span><a href=""> Indo.culture </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
+      </div>
+    </section>
+    <!-- Akhir footer Section -->
+
+    <!-- feather script -->
+    <script>
+      feather.replace();
+    </script>
+
+    <script type="text/javascript">
+      window.addEventListener("scroll", function(){
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0)
+      })
+    </script>
+
+    <!-- Alert JS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Include -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- Javascript Contact Form email-->
+    <script src="js/contact.js"></script>
+
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

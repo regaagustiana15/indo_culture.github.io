@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INDO_CULTURE</title>
+
+    <!-- link AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- javascript alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- link font awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- link icons sell -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Swiper card -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- style css  -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- favicon title -->
+    <link rel="icon" type="image" href="img/logo.jpg" />
+    <!-- <link rel="icon" type="image" href="img/logo2.jpg"> -->
+
+    <!-- app js -->
+    <script src="src/app.js" async></script>
+    <!-- <script src="js/contact.js"></script> -->
+  </head>
+
+  <body x-data>
+    <!-- Header -->
+    <header>
+      <input type="checkbox" name="" id="toggler" />
+      <label for="toggler" class="fas fa-bars" style="color: black"></label>
+
+      <a href="index.html" class="logo" style="color: black">Indo.<span>culture</span></a>
+
+      <nav class="navbar" style="color: brown">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Tentang Kami</a>
+        <a href="produk.html">Produk</a>
+        <a href="index.html#review">Review</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="icons">
+        <a href="#" id="search-button" style="color: black"><i data-feather="search"></i></a>
+        <a href="#" style="color: black"><i data-feather="heart"></i></a>
+        <a href="#" id="shopping-cart-button" style="color: black">
+          <i data-feather="shopping-cart"></i>
+          <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+        </a>
+      </div>
+
+      <!-- Search Form start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- Search Form end -->
+
+    </header>
+    <!-- Akhir Header -->
+
+    <!-- Mulai Section Banner Promo -->
+    <section class="banner"></section>
+    <!-- Akhir Section Banner Promo -->
+    <h1 class="heading">Produk <span>Detail</span></h1>
+
+    <!-- Mulai Pro Detail -->
+    <section id="prodetail">
+      <div class="single-pro-image">
+        <img src="img/promo2.png" alt="item.name" width="100%" id="MainImg" />
+
+        <div class="small-img-group">
+          <div class="small-img-col">
+            <img src="img/prodet3.jpg" width="100%" height="100%" class="small-img" alt="" />
+          </div>
+          <div class="small-img-col">
+            <img src="img/prodet2.jpeg" width="100%" height="100%" class="small-img" alt="" />
+          </div>
+          <div class="small-img-col">
+            <img src="img/prodet1.jpg" width="100%" height="100%" class="small-img" alt="" />
+          </div>
+          <div class="small-img-col" onclick="window.location.href='detail_2.html'">
+            <img src="img/polo.1.jpg" width="100%" height="100%" class="small-img" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="single-pro-details">
+        <h4>T-shirt</h4>
+        <h2><span>Rp 42.000/ </span>Rp 120.000</h2>
+        <button class="button he" onclick="window.location.href='produk.html'">Buat pesanan</button>
+        <h3>DESKRIPSI</h3>
+        <span>Jenis : T-Shirt
+
+          Bahan : 100% Cotton 30's ( Tipis, lembut, tidak kaku dan nyaman digunakan untuk sehari-hari )
+          NOTED: Bisa rekomendasi menurut selera masing-masing
+          Sablon : Plastisol High Quality (Lentur dan tidak mudah pecah dan luntur) "Jangan langsung disetrika pada bagian graphic printing"
+          
+          Size Chart :	
+          M : Lebar Dada 48 cm x Panjang 70 cm 
+          L : Lebar Dada 50 cm x Panjang 72 cm 
+          XL : Lebar Dada 52 cm x Panjang 74 cm
+          XXL : Lebar Dada 55 cm x Panjang 76 cm
+          (Bukan oversize)
+          
+          *Akan ada selisih 1-2 cm antara size chart dengan items actual bisa saja terjadi, Ini biasanya di karenakan proses pengembangan produksi.</span>
+      </div>
+    </section>
+    <!-- Akhir Pro Details -->
+
+
+    <!-- Mulai Section Pagination -->
+    <section id="pagination" class="section-p1">
+      <a href="product.detail.html">1</i></a>
+      <a href="detail_2.html">2</a>
+      <a href="detail_3.html"><i class="bx bxs-right-arrow"></i></a>
+
+    </section>
+    <!-- Akhir Section Pagination -->
+
+    <!-- Modal Box Item Detail Start -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/1.jpg" alt="Product" />
+          <div class="product-content">
+            <h3>Product 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, asperiores? Dicta, minus iure!</p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <div class="product-price">Rp 30.000 <span>Rp 55.000</span></div>
+            <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Box Item Detail End -->
+
+    <!-- footer Section-->
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>quick link</h3>
+          <a href="index.html">home</a>
+          <a href="blog.html">tentang kami</a>
+          <a href="produk.html">collections</a>
+          <a href="index.html#review">review</a>
+          <a href="index.html#contact">contact</a>
+        </div>
+
+        <div class="box">
+          <h3>Melayani Pembuatan</h3>
+          <a href="#">Kaos Sablon, Bordir</a>
+          <a href="produk.html">Seragam Olahraga</a>
+          <a href="product.detail.html">Serangam Komunitas</a>
+        </div>
+
+        <div class="box">
+          <h3>locations</h3>
+          <a href="#">Indonesia</a>
+          <a href="#">Bandung</a>
+          <a href="#">Jakarta</a>
+          <a href="#">Surabaya</a>
+        </div>
+
+        <div class="box">
+          <h3>Contact Info</h3>
+          <a href="#">+62-821-1891-6970</a>
+          <a href="#">Indo.culture.fashion@gmail.com</a>
+          <a href="#">Majalaya, Bandung, Indonesia</a>
+          <div class="social">
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-whatsapp"></i>
+            <i class="bx bx-envelope"></i>
+            <i class="bx bxs-map"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="credit">
+        created by <span><a href=""> Indo.culture </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
+      </div>
+    </section>
+    <!-- Akhir footer Section -->
+
+    <!-- feather script -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
+
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <script src="js/styleQC.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script>
+      var MainImg = document.getElementById('MainImg');
+      var smallimg = document.getElementsByClassName('small-img');
+
+      smallimg[0].onclick = function () {
+        MainImg.src = smallimg[0].src;
+      };
+      smallimg[1].onclick = function () {
+        MainImg.src = smallimg[1].src;
+      };
+      smallimg[2].onclick = function () {
+        MainImg.src = smallimg[2].src;
+      };
+      smallimg[3].onclick = function () {
+        MainImg.src = smallimg[3].src;
+      };
+    </script>
+  </body>
+</html>
