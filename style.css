@@ -1433,7 +1433,7 @@ header .search-form label {
   margin-top: 16px;
 }
 
-.mask-container .content a {
+.mask-container .content .target {
   width: 300px;
   height: 100px;
   font-weight: 500;
@@ -1458,11 +1458,11 @@ header .search-form label {
   -moz-transition: all 500ms;
   z-index: 1;
 }
-.mask-container .content a:hover {
+.mask-container .content .target:hover {
 color: #fff;
 }
-.content a:after,
-a:before {
+.content .target:after,
+.target:before {
   display: block;
   background: #666;
   width: 0;
@@ -1476,17 +1476,17 @@ a:before {
   transition: all 500ms;
   z-index: -1;
 }
-.content a:after {
+.content .target:after {
   bottom: 0px;
   left: 0px;
   width: 0%;
 }
-.content a:before {
+.content .target:before {
   top: 0px;
   right: 0px;
 }
-.content a:hover:after,
-a:hover:before{
+.content .target:hover:after,
+.target:hover:before{
 width: 100%;
 }
 
@@ -2070,8 +2070,8 @@ button.normal a:hover {
   .footer .social i {
     font-size: 350%;
   }
-  .mask-container .content a {
-    left: -10%;
-    top: 150px;
+  .mask-container .content .target {
+    left: -4%;
+    top: 10px;
   }
 }
