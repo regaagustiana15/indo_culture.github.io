@@ -1,11 +1,11 @@
-function emailSend(){
+function sendEmail(){
 
-   var userName = document.getElementById('name').value;
-   var email = document.getElementById('email').value;
-   var phone = document.getElementById('nomor').value;
-   var descripsi = document.getElementById('keterangan').value;
+   let userName = document.getElementById('name').value;
+   let email = document.getElementById('email').value;
+   let phone = document.getElementById('nomor').value;
+   let descripsi = document.getElementById('keterangan').value;
 
-   var messageBody = "Name " + userName +
+   let messageBody = "Name " + userName +
    "<br/> Email " + email +
    "<br/> Phone " + phone +
    "<br/> Keterangan " + descripsi;
