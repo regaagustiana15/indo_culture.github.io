@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>INDO_CULTURE</title>
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
 
@@ -68,7 +71,7 @@
       <div class="shopping-cart">
         <template x-for="(item, index) in $store.cart.items" x-key="index">
           <div class="cart-item">
-            <img :src="`img/${item.img}`" :alt="item.name" onclick="window.location.href='produk.html'"/>
+            <img :src="`img/${item.img}`" :alt="item.name" onclick="window.location.href='produk.html'" />
             <div class="item-detail">
               <h3 x-text="item.name"></h3>
               <div class="item-price">
@@ -139,7 +142,7 @@
     <!-- Awal home section -->
     <section class="hero" id="home">
       <div class="mask-container">
-        <main class="content">
+        <main class="content" data-aos="fade-up" data-aos-duration="2000">
           <h1>Mari Support Brand <span>Lokal Berkualitas</span></h1>
           <p>Bingung mau cari pakaian hits kekinian yang murah tapi berkualitas? Kami solusinya!</p>
           <a class="target" target="_blank" href="https://wa.me/6282118916970?text=">Hubungi Sekarang</a>
@@ -151,50 +154,56 @@
     <!-- Awal About Section  -->
     <section class="hero-container">
       <div>
-        <div>
+        <div data-aos="fade-up" data-aos-duration="1500">
           <h1 id="tol" class="heading">WELCOME TO <span>WEBSITE</span></h1>
-          <p>why here how to believe?</p>
+          <p data-aos-duration="2000">why here how to believe?</p>
         </div>
       </div>
-      <img src="assets/hero.svg" alt="hero" />
+      <img src="assets/hero.svg" alt="hero" data-aos="fade-up" data-aos-duration="1500" />
     </section>
     <section class="description-container">
       <div>
-        <div>
+        <div data-aos="fade-up" data-aos-duration="2000">
           <h1 class="heading" style="font-size: 1.5rem">INDO CULTURE</h1>
           <p>Selamat datang di INDO_CULTURE. Kami menyediakan berbagai layanan jasa produksi pakaian seperti jaket, baju korsa, jas almamater, polo shirt, t-shirt, seragam kerja, jaket parka, hoodie, jaket bomber, seragam olahraga, dll.</p>
         </div>
-        <div class="description-left-footer">
+        <div class="description-left-footer" data-aos="fade-up">
           <p>MARET 12 2024</p>
           <p class="font-weight-bold">Read more..</p>
         </div>
       </div>
-      <img src="img/magazine.png" alt="desc" onclick="window.location.href='blog.html'" />
+      <img src="img/magazine.png" alt="desc" onclick="window.location.href='blog.html'" data-aos="fade-up" />
     </section>
+    <div data-aos="fade-in-up" data-aos-duration="1000">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+      <a href="https://wa.me/6282118916970?text=" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+      </a>
+    </div>
     <section class="content-container">
-      <div class="card">
+      <div class="card" data-aos="zoom-out-right" data-aos-duration="1000">
         <img src="img/prodet1.jpg" alt="card1" />
         <div class="card-body" onclick="window.location.href='blog.html'">
           <h3>How to Care for Your Heart Clothes</h3>
           <p>Memakai pakaian dari merek favorit Anda tentu akan meningkatkan penampilan Anda. Jadi, tentu Anda tidak ingin pakaian yang baru Anda beli menjadi cepat...</p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer" data-aos="fade-up">
           <p>MARET 12 2024</p>
           <p class="font-weight-bold">Continue read...</p>
         </div>
       </div>
-      <div class="card" onclick="window.location.href='blog.html#visi'">
+      <div class="card" onclick="window.location.href='blog.html#visi'" data-aos="zoom-out-up" data-aos-duration="1000">
         <img src="img/R.jpeg" alt="card2" />
         <div class="card-body">
           <h3>VISI & MISI</h3>
           <p>Visi: "Menjadi pelopor dalam mempromosikan dan melestarikan kekayaan budaya Indonesia melalui produk-produk berkualitas tinggi yang memancarkan keindahan dan keunggulan budaya Indonesia."</p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer" data-aos="fade-up">
           <p>MARET 12 2024</p>
           <p class="font-weight-bold">Continue read...</p>
         </div>
       </div>
-      <div class="card" onclick="window.location.href='blog.html'">
+      <div class="card" onclick="window.location.href='blog.html'" data-aos="zoom-in-up" data-aos-duration="1000">
         <img src="img/jahit.jpeg" alt="card3" />
         <div class="card-body">
           <h3>Unggul Berkualitas</h3>
@@ -203,7 +212,7 @@
             Anda.
           </p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer" data-aos="fade-up">
           <p>Maret 12 2024</p>
           <p class="font-weight-bold">Continue read..</p>
         </div>
@@ -213,16 +222,16 @@
 
     <!-- Mulai Section Feature Servis -->
     <section id="feature" class="section">
-      <div class="fe-box">
+      <div class="fe-box" data-aos="flip-left" data-aos-duration="1000">
         <a href="blog.html"> <i data-feather="grid"></i></a>
       </div>
-      <div class="fe-box">
+      <div class="fe-box" data-aos="flip-left" data-aos-duration="2000">
         <a href="blog.html"> <i data-feather="life-buoy"></i></a>
       </div>
-      <div class="fe-box">
+      <div class="fe-box" data-aos="flip-left" data-aos-duration="2000">
         <a href="blog.html"> <i data-feather="minimize"></i></a>
       </div>
-      <div class="fe-box">
+      <div class="fe-box" data-aos="flip-left" data-aos-duration="2000">
         <a href="produk.html"> <i data-feather="shopping-bag"></i></a>
       </div>
     </section>
@@ -231,9 +240,9 @@
     <!-- Products section -->
     <!-- items (satu) -->
     <section class="products" id="products" x-data="products">
-      <h1 class="heading">Collections <span>Products</span></h1>
+      <h1 class="heading" data-aos="fade-up">Collections <span>Products</span></h1>
 
-      <div class="box-container">
+      <div class="box-container" data-aos="zoom-in" data-aos-duration="1000">
         <template x-for="(item, index) in items" x-key="index">
           <div class="box">
             <span class="discount" x-text="item.discount"></span>
@@ -264,7 +273,7 @@
         </template>
       </div>
       <!-- newItems (dua) -->
-      <div class="box-container">
+      <div class="box-container" data-aos="zoom-in" data-aos-duration="1000">
         <!-- Gunakan x-for untuk mengulang newItems -->
         <template x-for="(newItem, index) in newItems" x-bind:key="index">
           <div class="box">
@@ -329,9 +338,10 @@
 
     <!-- Review Section -->
     <section class="review" id="review">
-      <h1 class="heading">Costumer's <span>review</span></h1>
+      <h1 class="heading" data-aos="zoom-in-up" data-aos-duration="">Costumer's <span>review</span></h1>
       <div class="box-container">
-        <div class="box">
+        <div class="box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+          >
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -352,7 +362,8 @@
           </div>
           <span class="fas fa-quote-right"></span>
         </div>
-        <div class="box">
+        <div class="box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+          >
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -370,7 +381,8 @@
           </div>
           <span class="fas fa-quote-right"></span>
         </div>
-        <div class="box">
+        <div class="box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
+          >
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -396,7 +408,7 @@
     <!-- Akhir Review Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-aos="fade-up" data-aos-duration="2000">
       <h1 class="heading"><span> Contact </span> Us</h1>
 
       <div class="row">
@@ -423,7 +435,7 @@
 
           <button id="bot" type="submit" name="submit" value="send message" class="btn">send message</button>
         </form>
-        <div class="image">
+        <div class="image" data-aos="fade-in" data-aos-duration="2000">
           <img src="img/contact.png" alt="" />
         </div>
       </div>
@@ -477,27 +489,30 @@
     </section>
     <!-- Akhir footer Section -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://wa.me/6282118916970?text=" class="float" target="_blank">
-      <i class="fa fa-whatsapp my-float"></i>
-    </a>
-
     <!-- feather script -->
     <script>
       feather.replace();
     </script>
 
-    <!-- mengubah style navbar ketika discroll -->
+    <!-- mengubah style navbar ketika discroll-->
     <script type="text/javascript">
       window.addEventListener('scroll', function () {
-        var header = document.querySelector('header');
+        let header = document.querySelector('header');
         header.classList.toggle('sticky', window.scrollY > 0);
+      });
+    </script>
+
+    <!-- Aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
       });
     </script>
 
     <!-- Alert JS -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
     <!-- Javascript Contact Form email-->
     <script src="js/contact.js"></script>
 

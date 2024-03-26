@@ -72,15 +72,16 @@ header {
   left: 0;
   right: 0;
   background: transparent;
-  padding: 1.4rem 7%;
+  padding: 2rem 7%;
   align-items: center;
   z-index: 1000;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 header.sticky {
-  transition: all 0.4s ease-in-out;
+  transition: all .5s ease-in-out;
   background-color: #fff;
+  padding: 3rem 10%;
 }
 
 header.sticky .fa-bars {
@@ -1426,7 +1427,7 @@ header .search-form label {
   text-align: center;
   font-size: 30px;
   box-shadow: 2px 2px 3px #999;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .my-float {
