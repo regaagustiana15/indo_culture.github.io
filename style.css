@@ -1352,6 +1352,13 @@ header .search-form label {
   box-shadow: none;
 }
 
+.about img {
+  height: 100%;
+  width: 100%;
+  left: 20rem;
+  right: inherit;
+}
+
 /* Contact section */
 .contact .row {
   display: flex;
