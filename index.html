@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INDO_CULTURE</title>
+    <title>TAILOR TROVE</title>
 
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -37,116 +37,112 @@
 
   <body x-data>
     <!-- Header -->
-    <header>
-      <input type="checkbox" name="" id="toggler" />
-      <label for="toggler" class="fas fa-bars"></label>
-
-      <a href="#home" class="logo">Indo.<span>culture</span></a>
-
-      <nav class="navbar">
-        <a class="active" href="#home">Home</a>
-        <a href="blog.html">Tentang Kami</a>
-        <a href="produk.html">Produk</a>
-        <a href="#review">Review</a>
-        <a href="https://wa.me/6282118916970?text=">Contact</a>
-      </nav>
-
-      <div class="icons">
-        <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#"><i data-feather="heart"></i></a>
-        <a href="#" id="shopping-cart-button">
-          <i data-feather="shopping-cart"></i>
-          <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
-        </a>
-      </div>
-
-      <!-- Search Form start -->
-      <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here..." />
-        <label for="search-box"><i data-feather="search"></i></label>
-      </div>
-      <!-- Search Form end -->
-
-      <!-- Shopping cart -->
-      <div class="shopping-cart">
-        <template x-for="(item, index) in $store.cart.items" x-key="index">
-          <div class="cart-item">
-            <img :src="`img/${item.img}`" :alt="item.name" onclick="window.location.href='produk.html'" />
-            <div class="item-detail">
-              <h3 x-text="item.name"></h3>
-              <div class="item-price">
-                <span x-text="rupiah(item.price)"></span> &times;
-                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
-                <span x-text="item.quantity"></span>
-                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
-                <span x-text="rupiah($store.cart.total)"></span>
-              </div>
-            </div>
-          </div>
-        </template>
-        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">CART IS EMPTY</h4>
-        <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
-
-        <div class="form-container" x-show="$store.cart.items.length">
-          <form action="" id="checkoutForm">
-            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
-            <input type="hidden" name="total" x-model="$store.cart.total" />
-            <h5>Custumer Detail</h5>
-
-            <label for="name">
-              <span>Name</span>
-              <input type="text" name="name" id="name" required placeholder="..." />
-            </label>
-
-            <label for="email">
-              <span>Email</span>
-              <input type="email" name="email" id="email" required placeholder="..." />
-            </label>
-
-            <label for="address">
-              <span>Alamat</span>
-              <input type="text" name="address" id="address" required placeholder="..." />
-            </label>
-
-            <label for="jenis">
-              <span>Produk</span>
-              <input type="text" list="Jenis pesanan" name="jenis" id="jenis" placeholder="..." />
-              <datalist id="Jenis pesanan">
-                <option value="Kaos"></option>
-                <option value="Jaket"></option>
-                <option value="Jas Almamater"></option>
-                <option value="Pdl/Pdh"></option>
-                <option value="Sweater"></option>
-                <option value="Busana Muslim"></option>
-                <option value="Lainnya"></option>
-              </datalist>
-            </label>
-
-            <label for="jumlah">
-              <span>Costum</span>
-              <input type="text" name="jumlah" id="jumlah" required placeholder="Bahan/jenis sablon/jumlah pesanan, dll.." />
-            </label>
-
-            <label for="foto">
-              <span>Desain</span>
-              <input type="file" type="image" name="foto" id="foto" placeholder="Upload.." />
-            </label>
-
-            <button class="checkout-button disabled" type="submit" id="checkout-button">Beli</button>
-          </form>
+    <header class="header">
+      <div class="containa">
+        <div class="logo">
+          <img src="img/log.png" alt="TAILOR TROVE"  onclick="window.location.href='index.html'" />
         </div>
-      </div>
+        <nav class="menu">
+          <nav class="menu">
+            <div class="head">
+              <div class="logo"><img src="" alt="" /></div>
+              <button class="close-menu-btn"></button>
+            </div>
+            <ul>
+              <li class="active"><a href="index.html">Beranda</a></li>
+              <li class="dropdown">
+                <a href="blog.html">Tentang Kami</a>
+              </li>
+              <li class="dropdown">
+                <a href="product.detail.html">Layanan Kami</a>
+                <i class="fa-solid fa-chevron-down"></i>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="#"><span>T-shirt</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span>T-shirt Polo</span></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#"><span>Jaket</span></a>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <ul class="sub-menu sub-menu-right">
+                      <li>
+                        <a href="#"><span>Bomber</span></a>
+                      </li>
+                      <li>
+                        <a href="#"><span>Varsity</span></a>
+                      </li>
+                      <li>
+                        <a href="#"><span>Parka</span></a>
+                      </li>
+                      <li>
+                        <a href="#"><span>Coach</span></a>
+                      </li>
+                      <li>
+                        <a href="#"><span>Hoodie</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#"><span>Jas Almamater</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span>Kemeja</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span>PDL & PDH</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span>T-shirt Olahraga</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="https://wa.me/6282118916970?text=">Hubungi Kami</a></li>
+            </ul>
+          </nav>
+        </nav>
+
+        <div class="header-right">
+          <button id="search-button" class="search-btn icon-btn"><i class="fa-solid fa-search"></i></button>
+          <button type="button" class="open-menu-btn">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </button>
+        </div>
+
+        <!-- Search Form start -->
+        <div class="search-form">
+          <input type="search" id="search-box" placeholder="search here..."/>
+          <label for="search-box"><i data-feather="search"></i></label>
+        </div>
+        <!-- Search Form end -->
     </header>
     <!-- Akhir Header -->
 
     <!-- Awal home section -->
-    <section class="hero" id="home">
-      <div class="mask-container">
-        <main class="content" data-aos="fade-up" data-aos-duration="2000">
-          <h1>Mari Support Brand <span>Lokal Berkualitas</span></h1>
-          <p>Bingung mau cari pakaian hits kekinian yang murah tapi berkualitas? Kami solusinya!</p>
-          <a class="target" target="_blank" href="https://wa.me/6282118916970?text=">Hubungi Sekarang</a>
-        </main>
+    <section class="section" id="home">
+      <div class="circle" data-aos="fade-right" data-aos-duration="2000"></div>
+      <div class="section__container">
+        <div class="content" data-aos="fade-right" data-aos-duration="2000">
+          <p class="subtitle">TREND TAILOR</p>
+          <h1 class="title">
+            Tingkatkan gayamu dengan <span>Tailor Trove</span> <br> Pesan pakaian impianmu sekarang!
+          </h1>
+          <p class="description">
+            Temukan solusi tepat dengan Tailor Trove! Dapatkan jasa berkualitas dan profesional untuk kebutuhan pakaian Anda.
+          </p>
+          <div class="social-media">
+            <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="#"><i class='bx bxl-tiktok' ></i></a>
+            <a href="https://www.instagram.com/rega_agustiana21/"><i class='bx bxl-instagram-alt'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+          </div>
+        </div>
+        <div class="image" data-aos="fade-left" data-aos-duration="2000">
+          <img src="img/new/Mahasiswa_Universitas_Safin_Pati__10___1_-removebg-preview.png" alt="profile" />
+        </div>
       </div>
     </section>
     <!-- akhir Home Section -->
@@ -155,7 +151,7 @@
     <section class="hero-container">
       <div>
         <div data-aos="fade-up" data-aos-duration="1500">
-          <h1 id="tol" class="heading">WELCOME TO <span>WEBSITE</span></h1>
+          <h1 id="tol" class="heading">SELAMAT <span>DATANG</span></h1>
           <p data-aos-duration="2000">why here how to believe?</p>
         </div>
       </div>
@@ -164,8 +160,8 @@
     <section class="description-container">
       <div>
         <div data-aos="fade-up" data-aos-duration="2000">
-          <h1 class="heading" style="font-size: 1.5rem">INDO CULTURE</h1>
-          <p>Selamat datang di INDO_CULTURE. Kami menyediakan berbagai layanan jasa produksi pakaian seperti jaket, baju korsa, jas almamater, polo shirt, t-shirt, seragam kerja, jaket parka, hoodie, jaket bomber, seragam olahraga, dll.</p>
+          <h1 class="heading" style="font-size: 1.5rem">TAILOR TROVE</h1>
+          <p>Kami menyediakan berbagai layanan jasa produksi pakaian seperti jaket, baju korsa, jas almamater, polo shirt, t-shirt, seragam kerja, jaket parka, hoodie, jaket bomber, seragam olahraga, dll.</p>
         </div>
         <div class="description-left-footer" data-aos="fade-up">
           <p>MARET 12 2024</p>
@@ -185,7 +181,7 @@
         <img src="img/prodet1.jpg" alt="card1" />
         <div class="card-body" onclick="window.location.href='blog.html'">
           <h3>How to Care for Your Heart Clothes</h3>
-          <p>Memakai pakaian dari merek favorit Anda tentu akan meningkatkan penampilan Anda. Jadi, tentu Anda tidak ingin pakaian yang baru Anda beli menjadi cepat...</p>
+          <p>Salah satu Vendor dengan kualitas terbaik di Kabupaten BANDUNG</p>
         </div>
         <div class="card-footer" data-aos="fade-up">
           <p>MARET 12 2024</p>
@@ -195,8 +191,8 @@
       <div class="card" onclick="window.location.href='blog.html#visi'" data-aos="zoom-out-up" data-aos-duration="1000">
         <img src="img/R.jpeg" alt="card2" />
         <div class="card-body">
-          <h3>VISI & MISI</h3>
-          <p>Visi: "Menjadi pelopor dalam mempromosikan dan melestarikan kekayaan budaya Indonesia melalui produk-produk berkualitas tinggi yang memancarkan keindahan dan keunggulan budaya Indonesia."</p>
+          <h3>VISI <br>& MISI</h3>
+          <p>Visi: "Menjadi pelopor dalam mempromosikan dan melestarikan kekayaan.. "</p>
         </div>
         <div class="card-footer" data-aos="fade-up">
           <p>MARET 12 2024</p>
@@ -207,10 +203,7 @@
         <img src="img/jahit.jpeg" alt="card3" />
         <div class="card-body">
           <h3>Unggul Berkualitas</h3>
-          <p>
-            Telah terbukti, pelanggan yang menggunakan jasa kami mengakui kualitas jasa/produk kami. INDO_CULTURE – Eyras konveksi menggunakan tim yang berpengalaman dan profesional dalam menciptakan produk yang sesuai dengan keinginan
-            Anda.
-          </p>
+          <p>Telah terbukti, pelanggan yang menggunakan jasa kami mengakui kualitas jasa/produk kami. Tailor Trove menggunakan tim yang berpengalaman dan..</p>
         </div>
         <div class="card-footer" data-aos="fade-up">
           <p>Maret 12 2024</p>
@@ -240,7 +233,7 @@
     <!-- Products section -->
     <!-- items (satu) -->
     <section class="products" id="products" x-data="products">
-      <h1 class="heading" data-aos="fade-up">Collections <span>Products</span></h1>
+      <h1 class="heading" data-aos="fade-up">Recomend <span>Products</span></h1>
 
       <div class="box-container" data-aos="zoom-in" data-aos-duration="1000">
         <template x-for="(item, index) in items" x-key="index">
@@ -265,7 +258,7 @@
             <div class="content">
               <h3 x-text="item.name"></h3>
               <div class="price">
-                <p x-text="rupiah(item.promo)">Rp 125.000</p>
+                <p x-text="rupiah(item.promo)"></p>
                 <span x-text="rupiah(item.price)"></span>
               </div>
             </div>
@@ -302,7 +295,7 @@
               <h3 x-text="newItem.name"></h3>
               <div class="price">
                 <!-- Tampilkan harga promo dan harga asli -->
-                <p x-text="rupiah(newItem.promo)">Rp 125.000</p>
+                <p x-text="rupiah(newItem.promo)"></p>
                 <span x-text="rupiah(newItem.price)"></span>
               </div>
             </div>
@@ -348,9 +341,7 @@
             <i class="fas fa-star"></i>
             <i class="fa-regular fa-star"></i>
           </div>
-          <p>
-            "Baru kali ini sih liat orang produksi pakaian cepetnya minta ampun hasil jahitan pun rapih dan detail banget.."
-          </p>
+          <p>"Baru kali ini sih produksi baju sesuai dengan keinginan, hasil jahitan pun rapih dan detail banget.."</p>
           <div class="user">
             <img src="img/WhatsApp Image 2024-03-24 at 12.58.33_8b6591ca.jpg" alt="fina" />
             <div class="user-info">
@@ -361,7 +352,6 @@
           <span class="fas fa-quote-right"></span>
         </div>
         <div class="box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-          
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -369,7 +359,7 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </div>
-          <p>Ngerti banget mau diajak berkonsultasi. Pesanannya juga selesai tepat waktu, harganya lebih murah dibandingkan konveksi lain. wajib kesini lagi sih</p>
+          <p>Enak banget mau diajak konsultasi. Pesanannya juga selesai tepat waktu, harganya lebih murah dibandingkan konveksi lain. Pasti kesini lagi sih</p>
           <div class="user">
             <img src="img/testi2.jpeg" alt="" />
             <div class="user-info">
@@ -380,7 +370,6 @@
           <span class="fas fa-quote-right"></span>
         </div>
         <div class="box" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
-          
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -388,9 +377,7 @@
             <i class="fas fa-star"></i>
             <i class="fa-regular fa-star"></i>
           </div>
-          <p>
-            "Awalnya sih buat ragu buat pesan disini namun, Alhamdulillah, hasilnya sangat memuaskan sekali Proses pembuatannya cepat, harga ramah dikantong tapi kualitas ga main-main.."
-          </p>
+          <p>"Awalnya sih dibuat ragu pesan disini tapi, Alhamdulillah, hasilnya sangat memuaskan sekali proses pembuatannya cepat, harga ramah dikantong kualitas ga main-main.."</p>
           <div class="user">
             <img src="img/testi3.jpg" alt="" />
             <div class="user-info">
@@ -407,8 +394,7 @@
     <!-- Client -->
     <section class="about" id="about" data-aos="fade-up" data-aos-duration="2000">
       <h1 class="heading"><span> Client</span> Services</h1>
-      <img src="img/clientjpg.jpg" alt="Image Client Support">
-
+      <img src="img/clientjpg.jpg" alt="Image Client Support" />
     </section>
 
     <!-- Contact Section -->
@@ -476,7 +462,7 @@
         <div class="box">
           <h3>Kontak Info</h3>
           <a href="#">+62-821-1891-6970</a>
-          <a href="#">Indo.culture.fashion@gmail.com</a>
+          <a href="#">regaagustiana15@gmail.com</a>
           <a href="#">Majalaya, Bandung, Indonesia</a>
           <div class="social">
             <i class="bx bxl-instagram"></i>
@@ -488,7 +474,7 @@
       </div>
 
       <div class="credit">
-        created by <span><a href="https://wa.me/6282118916970?text="> Indo.culture </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
+        created &copy; by <span><a href="https://wa.me/6282118916970?text="> Rega Agustiana</a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
       </div>
     </section>
     <!-- Akhir footer Section -->
@@ -496,14 +482,6 @@
     <!-- feather script -->
     <script>
       feather.replace();
-    </script>
-
-    <!-- mengubah style navbar ketika discroll-->
-    <script type="text/javascript">
-      window.addEventListener('scroll', function () {
-        let header = document.querySelector('header');
-        header.classList.toggle('sticky', window.scrollY > 0);
-      });
     </script>
 
     <!-- Aos -->
@@ -527,10 +505,5 @@
     <script src="js/script.js"></script>
 
     <script src="js/swiper-bundle.min.js"></script>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>

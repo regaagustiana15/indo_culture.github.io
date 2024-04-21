@@ -28,26 +28,23 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// MODAL BOX
-const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButtons = document.querySelectorAll('.item-detail-button');
+const menu = document.querySelector(".menu");
+const openMenuBtn = document.querySelector(".open-menu-btn");
+const closeMenuBtn = document.querySelector(".close-menu-btn");
 
-itemDetailButtons.forEach((btn) => {
-  btn.onclick = (e) => {
-    itemDetailModal.style.display = 'flex';
-    e.preventDefault();
-  };
+[openMenuBtn, closeMenuBtn].forEach((btn) => {
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        menu.style.transition = "transform 0.5s ease";
+    });
 });
 
-// klik tombol close modal
-document.querySelector('.modal .close-icon').onclick = (e) => {
-  itemDetailModal.style.display = 'none';
-  e.preventDefault();
-};
+menu.addEventListener("transitionend", function() {
+    this.removeAttribute("style");
+});
 
-// klik diluar modal 
-window.onclik = (e) => {
-  if (e.target === itemDetailModal) {
-    itemDetailModal.style.display = 'none';
-  }
-};
+menu.querySelectorAll(".dropdown > i").forEach((arrow) =>{
+    arrow.addEventListener("click", function(){
+        this.closest(".dropdown").classList.toggle("active");
+    });
+});
