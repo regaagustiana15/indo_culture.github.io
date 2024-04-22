@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INDO_CULTURE</title>
+    <title>Produk Detail</title>
 
     <!-- link AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -41,12 +41,12 @@
       <input type="checkbox" name="" id="toggler" />
       <label for="toggler" class="fas fa-bars" style="color: black"></label>
 
-      <a href="index.html" class="logo" style="color: black">Indo.<span>culture</span></a>
+      <a href="index.html" class="logo" style="color: #666 ">EY<span>RAS</span></a>
 
       <nav class="navbar" style="color: brown">
-        <a href="index.html">Home</a>
+        <a href="index.html">Beranda</a>
         <a href="blog.html">Tentang Kami</a>
-        <a href="produk.html">Produk</a>
+        <a href="produk.html">Layanan Kami</a>
         <a href="index.html#review">Review</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -66,52 +66,6 @@
         <label for="search-box"><i data-feather="search"></i></label>
       </div>
       <!-- Search Form end -->
-
-      <!-- Shopping cart -->
-      <!-- <div class="shopping-cart">
-        <template x-for="(item, index) in $store.cart.items" x-key="index">
-          <div class="cart-item">
-            <img :src="`img/${item.img}`" :alt="item.name" />
-            <div class="item-detail">
-              <h3 x-text="item.name"></h3>
-              <div class="item-price">
-                <span x-text="rupiah(item.price)"></span> &times;
-                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
-                <span x-text="item.quantity"></span>
-                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
-                <span x-text="rupiah($store.cart.total)"></span>
-              </div>
-            </div>
-          </div>
-        </template>
-        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">CART IS EMPTY</h4>
-        <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
-
-        <div class="form-container" x-show="$store.cart.items.length">
-          <form action="" id="checkoutForm">
-            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
-            <input type="hidden" name="total" x-model="$store.cart.total" />
-            <h5>Custumer Detail</h5>
-
-            <label for="name">
-              <span>Name</span>
-              <input type="text" name="name" id="name" />
-            </label>
-
-            <label for="email">
-              <span>Email</span>
-              <input type="email" name="email" id="email" />
-            </label>
-
-            <label for="phone">
-              <span>No Hp</span>
-              <input type="number" name="phone" id="phone" autocomplete="off" />
-            </label>
-
-            <button class="checkout-button disabled" type="submit" id="checkout-button">Beli</button>
-          </form>
-        </div>
-      </div> -->
     </header>
     <!-- Akhir Header -->
 
@@ -143,10 +97,10 @@
 
       <div class="single-pro-details">
         <h4>T-shirt/Jacket/PDL-PDH/Jas Almamater/Rompi Kerja Dll</h4>
-        <h2><span>Rp 000.000/ </span>Rp 000.000</h2>
-        <button class="button he" onclick="window.location.href='produk.html'">Buat pesanan</button>
+        <h2><span>Rp ? </span>Rp ?</h2>
+        <button class="button he" onclick="window.location.href='index.html'">Konsultasi</button>
         <h3>DESKRIPSI</h3>
-        <span>Memperkenalkan lini produk kami yang dapat disesuaikan di mana Anda adalah desainernya! Di toko kami, Anda memiliki kebebasan untuk mendesain produk Anda sendiri sesuai dengan preferensi unik Anda. Baik itu Kaos, Jacket Komunitas, PDH/PDL yang dapat anda sesuaikan, Anda mengendalikan proses desain.
+        <span>Memperkenalkan lini produk kami yang dapat disesuaikan di mana Anda adalah yang mengatur semua detail pakaian sesuai dengan keinginan anda! Bersama EYRAS KONVEKSI, Anda memiliki kebebasan untuk mendesain produk Anda sendiri sesuai dengan preferensi unik Anda. Baik itu Kaos, Jacket Komunitas, PDH/PDL, Jas Almamater yang dapat anda sesuaikan, Anda mengendalikan proses desain.
 
           Dengan fitur "Desain Gratis" kami, pelanggan dapat mengeluarkan kreativitas anda dan mewujudkan visi perusahaan-lembaga atau anda sendiri. Dari pemilihan bahan hingga pemilihan detail yang rumit, setiap aspek produk disesuaikan dengan spesifikasi Anda.
           
@@ -163,30 +117,6 @@
 
 </section>
 
-    <!-- Modal Box Item Detail Start -->
-    <div class="modal" id="item-detail-modal">
-      <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content">
-          <img src="img/1.jpg" alt="Product" />
-          <div class="product-content">
-            <h3>Product 1</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, asperiores? Dicta, minus iure!</p>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-            </div>
-            <div class="product-price">Rp 30.000 <span>Rp 55.000</span></div>
-            <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal Box Item Detail End -->
-
     <!-- footer Section-->
     <section class="footer">
       <div class="box-container">
@@ -202,6 +132,7 @@
         <div class="box">
           <h3>Melayani Pembuatan</h3>
           <a href="#">Kaos Sablon, Bordir</a>
+          <a href="#">Seragam Kerja</a>
           <a href="produk.html">Seragam Olahraga</a>
           <a href="product.detail.html">Serangam Komunitas</a>
         </div>
@@ -218,7 +149,7 @@
         <div class="box">
           <h3>Contact Info</h3>
           <a href="#">+62-821-1891-6970</a>
-          <a href="#">Indo.culture.fashion@gmail.com</a>
+          <a href="#">regaagustiana15@gmail.com</a>
           <a href="#">Majalaya, Bandung, Indonesia</a>
           <div class="social">
             <i class="bx bxl-instagram"></i>
@@ -231,7 +162,7 @@
       </div>
 
       <div class="credit">
-        created by <span><a href=""> Indo.culture </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
+        created &copy; by <span><a href=""> Rega Agustiana</a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
       </div>
     </section>
     <!-- Akhir footer Section -->
@@ -240,6 +171,14 @@
     <script>
       feather.replace();
     </script>
+
+ <!-- mengubah style navbar ketika discroll -->
+ <script type="text/javascript">
+  window.addEventListener("scroll", function(){
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0)
+  })
+</script>
 
     <!-- My Javascript -->
     <script src="js/script.js"></script>

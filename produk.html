@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing page</title>
+    <title>Product Detail</title>
 
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -31,14 +31,14 @@
       <input type="checkbox" name="" id="toggler" />
       <label for="toggler" class="fas fa-bars"></label>
 
-      <a href="#home" class="logo">Indo.<span>culture</span></a>
+      <a href="#home" class="logo">EY<span>RAS</span></a>
 
       <nav class="navbar">
-        <a href="index.html">Home</a>
+        <a href="index.html">Beranda</a>
         <a href="blog.html">Tentang Kami</a>
-        <a href="#products">Produk</a>
+        <a class="active" href="#products">Layanan Kami</a>
         <a href="index.html#review">Review</a>
-        <a href="index.html">Contact</a>
+        <a href="index.html">Konsultasi</a>
       </nav>
 
       <div class="icons">
@@ -142,7 +142,7 @@
     <!-- Mulai Section Banner Promo -->
     <section id="banner">
       <h4>"Pakaian untuk momen terbaik Anda"</h4>
-      <h2>Refresh<span> apabila produk dan harga belum muncul</span> !</h2>
+      <h2>Refresh<span> apabila detail produk belum muncul</span> !</h2>
     </section>
     <!-- Akhir Section Banner Promo -->
 
@@ -259,7 +259,7 @@
         <div class="box">
           <h3>Contact Info</h3>
           <a href="#">+62-821-1891-6970</a>
-          <a href="#">Indo.culture.fashion@gmail.com</a>
+          <a href="#">regaagustiana15@gmail.com</a>
           <a href="#">Majalaya, Bandung, Indonesia</a>
         </div>
 
@@ -272,7 +272,7 @@
       </div>
 
       <div class="credit">
-        created by <span><a href=""> Indo.culture </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
+        created &copy; by <span><a href=""> Rega Agustiana </a></span> <i class="bx bxs-bookmark-heart"></i> all rights reserved
       </div>
     </section>
     <!-- Akhir footer Section -->
@@ -280,6 +280,15 @@
     <script>
       feather.replace();
     </script>
+
+      <!-- mengubah style navbar ketika discroll -->
+      <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+          var header = document.querySelector("header");
+          header.classList.toggle("sticky", window.scrollY > 0)
+        })
+      </script>
+
     <!-- My Javascript -->
     <script src="js/script.js"></script>
   </body>
